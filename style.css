@@ -770,3 +770,31 @@ textarea::placeholder {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--gray-400);
 }
+
+/* Ad Banners */
+.ad-banner {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.ad-left {
+    left: 20px;
+}
+
+.ad-right {
+    right: 20px;
+}
+
+@media (max-width: 1024px) {
+    .ad-banner {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .ad-banner {
+        display: none !important;
+    }
+}

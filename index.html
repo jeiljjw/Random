@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Winner - 랜덤 당첨자 추첨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-decoration">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-trophy trophy-icon"></i>
+            </div>
+            <h1>Random Winner</h1>
+            <p class="subtitle">공정하고 투명한 랜덤 추첨</p>
+        </header>
+
+        <main class="main-content">
+            <section class="input-card">
+                <div class="card-header">
+                    <i class="fas fa-users"></i>
+                    <h2>참가자 등록</h2>
+                </div>
+                <div class="input-group">
+                    <label for="participants">
+                        <i class="fas fa-pen"></i>
+                        이름 입력
+                        <span class="hint">줄로 구분하여 입력하세요</span>
+                    </label>
+                    <textarea id="participants" placeholder="예)&#10;홍길동&#10;김철수&#10;이영희&#10;박민수&#10;최정연"></textarea>
+                    <div class="participant-count">
+                        <span id="count">0</span>명 등록됨
+                    </div>
+                </div>
+            </section>
+
+            <section class="settings-card">
+                <div class="card-header">
+                    <i class="fas fa-sliders-h"></i>
+                    <h2>설정</h2>
+                </div>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <label for="winner-count">
+                            <i class="fas fa-crown"></i>
+                            당첨자 수
+                        </label>
+                        <div class="counter-input">
+                            <button class="counter-btn minus" id="minus-btn">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input type="number" id="winner-count" value="1" min="1" readonly>
+                            <button class="counter-btn plus" id="plus-btn">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <label>
+                            <i class="fas fa-random"></i>
+                            추첨 방식
+                        </label>
+                        <div class="mode-badge">
+                            <i class="fas fa-check-circle"></i>
+                            랜덤 중복 없음
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <button class="draw-btn" id="draw-btn">
+                <span class="btn-text">
+                    <i class="fas fa-dice"></i>
+                    추첨 시작
+                </span>
+                <span class="btn-bg"></span>
+            </button>
+        </main>
+
+        <!-- 사다리 애니메이션 -->
+        <div class="ladder-overlay" id="ladder-overlay">
+            <div class="ladder-modal">
+                <div class="ladder-header">
+                    <h3>
+                        <i class="fas fa-random"></i>
+                        추첨 중...
+                    </h3>
+                </div>
+                <div class="ladder-container">
+                    <div class="ladder-names" id="ladder-names"></div>
+                </div>
+                <div class="ladder-progress">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 결과 모달 -->
+        <div class="result-modal" id="result-modal">
+            <div class="modal-backdrop"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="celebration-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h2>🎊 당첨자 발표! 🎊</h2>
+                </div>
+                <div class="winners-container">
+                    <div class="winners" id="winners"></div>
+                </div>
+                <button class="close-btn" id="close-modal">
+                    <i class="fas fa-times"></i>
+                    닫기
+                </button>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>© 2024 Random Winner. 모든 권한 보유.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
